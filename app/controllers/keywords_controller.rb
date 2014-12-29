@@ -28,6 +28,7 @@ class KeywordsController < ApplicationController
     @keyword = Keyword.new(keyword_params)
 
     respond_to do |format|
+      @keyword.grab_tweets
       if @keyword.save
         format.html { redirect_to @keyword, notice: 'Keyword was successfully created.' }
         format.json { render :show, status: :created, location: @keyword }
