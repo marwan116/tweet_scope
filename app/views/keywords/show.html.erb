@@ -4,6 +4,14 @@
   <strong>Word:</strong>
   <%= @keyword.word %>
 </p>
+<h2> Latest Tweets (<%= @keyword.tweets.count %>) </h2>
+
+<ul>
+	<% @keyword.tweets.each do |tweet| %>
+	<li> <%= tweet.user_screen_name %> : <%= tweet.text %> </li>
+	<% end %>
+</ul>
+
 
 <%= link_to 'Edit', edit_keyword_path(@keyword) %> |
 <%= link_to 'Back', keywords_path %>
